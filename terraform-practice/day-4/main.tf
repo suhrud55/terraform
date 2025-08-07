@@ -13,3 +13,7 @@ resource "aws_s3_bucket" "name" {
     bucket = "showtiemmmmmm"
   
 }
+resource "aws_internet_gateway" "dev" {
+    vpc_id = aws_vpc.name.id
+  
+}
