@@ -10,7 +10,7 @@ resource "aws_vpc" "name" {
 }
 
 resource "aws_s3_bucket" "name" {
-    bucket = "showtiemmmmmm"
+    bucket = "showtiemmmmm"
   
 }
 resource "aws_internet_gateway" "dev" {
