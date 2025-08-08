@@ -124,6 +124,9 @@ resource "aws_instance" "pub" {
     instance_type = var.instance_type
     subnet_id = aws_subnet.name.id
     vpc_security_group_ids = [aws_security_group.test.id]
+    tags = {
+      Name = "jack"
+    }
   
 }
 
