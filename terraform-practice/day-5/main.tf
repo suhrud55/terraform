@@ -1,11 +1,11 @@
 resource "aws_s3_bucket" "tfstate" {
-    bucket = "stevejack"
+    bucket = var.bucket_name
 
   
 }
 
 resource "aws_vpc" "name" {
-    cidr_block = "10.0.0.0/16"
+    cidr_block = var.vpc_cidr
     tags = {
       Name = "cust-vpc"
       
@@ -17,7 +17,7 @@ resource "aws_subnet" "name" {
     tags = {
         Name = "pub-sub"
     }
-    cidr_block = "10.0.0.0/24"
+    cidr_block = var.public_subnet_cidr
   
 }
 resource "aws_subnet" "name2" {
@@ -25,7 +25,7 @@ resource "aws_subnet" "name2" {
     tags = {
       Name =  "pvt-sub"
     }
-    cidr_block = "10.0.1.0/24"
+    cidr_block = var.private_subnet_cidr
   
 }
 resource "aws_internet_gateway" "name" {
@@ -120,8 +120,8 @@ resource "aws_route_table_association" "pvt" {
   
 }
 resource "aws_instance" "pub" {
-    ami = "ami-0d54604676873b4ec"
-    instance_type = "t2.micro"
+    ami = var.ami_id
+    instance_type = var.instance_type
     subnet_id = aws_subnet.name.id
     vpc_security_group_ids = [aws_security_group.test.id]
   
