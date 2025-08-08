@@ -2,35 +2,35 @@
 variable "bucket_name" {
   description = "Name of the S3 bucket for tfstate"
   type        = string
-  default     = "stevejack"
+  default     = ""
 }
 
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = ""
 }
 
 variable "public_subnet_cidr" {
   description = "CIDR block for the public subnet"
   type        = string
-  default     = "10.0.0.0/24"
+  default     = ""
 }
 
 variable "private_subnet_cidr" {
   description = "CIDR block for the private subnet"
   type        = string
-  default     = "10.0.1.0/24"
+  default     = ""
 }
 
 variable "ami_id" {
   description = "AMI ID for EC2 instance"
   type        = string
-  default     = "ami-0d54604676873b4ec"
+  default     = ""
 }
 
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t2.micro"
+  default     = ""
 }
