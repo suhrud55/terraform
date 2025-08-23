@@ -1,0 +1,8 @@
+Get-Content servers.txt | ForEach-Object {
+    $parts = $_ -split ","
+    $name = $parts[0]
+    $id   = $parts[1]
+    terraform import "aws_instance.$name" $id
+}
+
+###above command for multiple servers in single go  ...create servers.txt and give unique name and instance id and then do the above command
