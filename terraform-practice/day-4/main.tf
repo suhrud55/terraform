@@ -1,3 +1,6 @@
+provider "aws" {
+}
+
 resource "aws_instance" "test" {
     ami = "ami-0d54604676873b4ec"
     instance_type = "t2.micro"
@@ -16,4 +19,15 @@ resource "aws_s3_bucket" "name" {
 resource "aws_internet_gateway" "dev" {
     vpc_id = aws_vpc.name.id
   
+}
+
+terraform {
+  backend "s3" {
+    bucket = "showtiem"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+    use_lockfile = true
+    dynamodb_table = "value"
+    encrypt = true
+  }
 }
